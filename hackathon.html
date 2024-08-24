@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Team Analytics</title>
+    <style>
+        /* Body and General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #5c6bc0;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Form Container */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 1em;
+            color: #5c6bc0;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #5c6bc0;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3949ab;
+        }
+
+        /* Result Section */
+        h2 {
+            color: #3949ab;
+            text-align: center;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Football Team Analytics</h1>
+
+    <form method="post" action="/predict">
+        <label>Enter Team Name</label>
+        <input type="text" name="team_name" required><br>
+
+        
+
+        <label>No of Wins</label>
+        <input type="number" name="wins" required><br>
+
+        <label>No of Losses</label>
+        <input type="number" name="losses" required><br>
+
+        <label>No of Goals</label>
+        <input type="number" name="goals_for" required><br>
+
+        <label>No of Goals Against</label>
+        <input type="number" name="goals_against" required><br>
+
+        <label>Points</label>
+        <input type="number" name="points" required><br>
+
+        <label>Points per Match</label>
+        <input type="number" name="points_per_match" step="0.01" required><br>
+        
+        <label>Expected Goals</label>
+        <input type="number" name="expected_goals" step="0.01" required><br>
+
+        <label>Expected Goals Allowed</label>
+        <input type="number" name="expected_goals_allowed" step="0.01" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h2>Match Win/Loss Prediction Result</h2>
+    <p>Predicted match result: <strong>{{ prediction }}</strong></p>
+</body>
+</html>
